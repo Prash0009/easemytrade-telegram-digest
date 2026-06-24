@@ -1,0 +1,19 @@
+{
+  "last_signature": "dfdc3772a634f6d3b7a3cd55ad4073deb6227b46f2c108b9138dc5caa19f647c",
+  "last_updated": "2026-05-12 12:48 IST",
+  "signal_reported_at": "2026-05-12 10:19 IST",
+  "payload_source": "snapshot",
+  "active_trades": {},
+  "observed_setups": {},
+  "last_hold_reminder_at": "2026-05-08 15:19 IST",
+  "last_bot_run_at": "2026-05-12 12:49 IST",
+  "telegram_status": "Recorded current",
+  "last_status_detail": "Current dashboard signal state was recorded without sending a Telegram message.",
+  "last_signal_action": "Sell",
+  "last_signal_contract": "NIFTY 24050 PE",
+  "current_signal_action": "",
+  "current_signal_contract": "",
+  "last_message_sent_at": "2026-05-08 15:19 IST",
+  "last_message_action": "Sell",
+  "last_message_contract": "NIFTY 24150 PE"
+}
