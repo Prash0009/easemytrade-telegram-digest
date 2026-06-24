@@ -1062,25 +1062,31 @@ def payload_has_unavailable_indian_feed(payload: dict[str, Any]) -> bool:
 
 def fetch_live_payload_once(url: str = MARKET_API_URL, *, force_live: bool = False) -> dict[str, Any]:
     separator = "&" if "?" in url else "?"
-    force_part = "&forceLive=1" if force_live else ""
+    # No `t=` cache-buster: a unique URL each call defeats the CDN edge cache and
+    # forces a slow origin crawl (which timed out). The non-force read should hit
+    # the ~20s edge cache (fast); only forceLive deliberately bypasses it.
+    target = f"{url}{separator}forceLive=1" if force_live else url
     request = Request(
-        f"{url}{separator}t={int(time.time())}{force_part}",
+        target,
         headers={
             "Accept": "application/json",
             "User-Agent": "EaseMyTrade-Telegram-Signal-Workflow/1.0",
         },
     )
-    with urlopen(request, timeout=25) as response:
+    with urlopen(request, timeout=75) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
 def fetch_live_payload(url: str = MARKET_API_URL) -> dict[str, Any]:
     errors: list[str] = []
-    for force_live in (True, False):
+    # Cached (edge) read first — it carries live data refreshed every ~20s and is
+    # fast/reliable. forceLive is only a fallback when the cached payload reports
+    # an unavailable Indian feed (e.g. a cold edge), since it bypasses the cache.
+    for force_live in (False, True):
         try:
             payload = fetch_live_payload_once(url, force_live=force_live)
-            if force_live and payload_has_unavailable_indian_feed(payload):
-                errors.append("forceLive: Indian live feed unavailable")
+            if payload_has_unavailable_indian_feed(payload):
+                errors.append(f"{'forceLive' if force_live else 'live'}: Indian live feed unavailable")
                 continue
             return payload
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
