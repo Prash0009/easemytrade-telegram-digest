@@ -955,6 +955,7 @@ def engine_completed_signals(payload: dict[str, Any]) -> list[dict[str, Any]]:
             if not contract or not reported:
                 continue
             out.append({
+                "kind": "completed",
                 "label": label,
                 "contract": contract,
                 "reportedAt": reported,
@@ -962,37 +963,96 @@ def engine_completed_signals(payload: dict[str, Any]) -> list[dict[str, Any]]:
                 "result": str(trade.get("displayResult") or trade.get("result") or "").strip(),
                 "pnl": str(trade.get("pnlLtp") or trade.get("pnl") or "").strip(),
                 "confidence": str(trade.get("confidence") or "").strip(),
-                "key": f"{label}|{contract}|{reported}",
             })
     return out
 
 
-def new_fired_signals(payload: dict[str, Any], state: dict[str, Any]) -> list[dict[str, Any]]:
+# Generation-time detector: a live, trigger-qualified signal with a contract is a
+# freshly generated trade. Catching it here alerts at fire time (real-time),
+# rather than waiting for the completed record. The completed detector above is
+# the backstop for any active window a poll misses.
+def active_generated_signals(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    payload_keys = {label: key for label, key in INDEX_PAYLOAD_KEYS}
+    for label, _path in INDEX_REVIEW_SOURCES:
+        pk = payload_keys.get(label)
+        index_data = payload.get(pk) if pk and isinstance(payload.get(pk), dict) else {}
+        signal = index_signal(index_data) if isinstance(index_data, dict) else {}
+        if not isinstance(signal, dict):
+            continue
+        contract = str(signal.get("contract") or "").strip()
+        if not contract or not bool(signal.get("triggerQualified")):
+            continue
+        if isinstance(signal.get("completed"), dict) and signal.get("completed"):
+            continue
+        out.append({
+            "kind": "generated",
+            "label": label,
+            "contract": contract,
+            "reportedAt": str(signal.get("signalReportedAt") or payload.get("signalReportedAt") or "").strip(),
+            "completedAt": "",
+            "action": str(signal.get("action") or signal.get("candidateAction") or "").strip(),
+            "entry": str(signal.get("entry") or signal.get("entryRule") or "").strip(),
+            "stop": str(signal.get("stopLoss") or signal.get("stopLevel") or "").strip(),
+            "target": str(signal.get("target") or signal.get("targetPrice") or signal.get("targetLevel") or "").strip(),
+            "confidence": str(signal.get("confidence") or "").strip(),
+        })
+    return out
+
+
+def _signal_day_key(value: str) -> str:
+    # Dedup per contract per day. Accepts both old timestamp keys and day keys.
+    parts = str(value).split("|")
+    return f"{parts[0]}|{parts[1]}|{parts[2][:10]}" if len(parts) >= 3 else str(value)
+
+
+def new_signal_alerts(payload: dict[str, Any], state: dict[str, Any]) -> list[dict[str, Any]]:
     today = now_ist_label()[:10]
-    alerted = state.get("alerted_signal_keys")
-    alerted_set = set(alerted) if isinstance(alerted, list) else set()
-    fresh = [
-        s for s in engine_completed_signals(payload)
-        if s["reportedAt"][:10] == today and s["key"] not in alerted_set
-    ]
-    fresh.sort(key=lambda s: s["reportedAt"])
+    stored = state.get("alerted_signal_keys")
+    alerted_set = {_signal_day_key(k) for k in (stored if isinstance(stored, list) else [])}
+    by_key: dict[str, dict[str, Any]] = {}
+    # generated first so it wins over the completed backstop for the same signal
+    for s in active_generated_signals(payload) + engine_completed_signals(payload):
+        reported = s.get("reportedAt") or ""
+        if reported[:10] != today:
+            continue
+        day_key = f"{s['label']}|{s['contract']}|{reported[:10]}"
+        if day_key in alerted_set:
+            continue
+        if day_key not in by_key:
+            by_key[day_key] = {**s, "dayKey": day_key}
+    fresh = list(by_key.values())
+    fresh.sort(key=lambda s: s.get("reportedAt") or "")
     return fresh
 
 
 def build_fired_signal_message(signals: list[dict[str, Any]], payload: dict[str, Any]) -> str:
     lines = ["EaseMyTrade — signal update"]
     for s in signals:
-        result = s["result"]
-        pnl = s["pnl"]
-        won = "profit" in result.lower() or pnl.startswith("+")
-        lost = "loss" in result.lower() or "stop" in result.lower() or pnl.startswith("-")
-        mark = "✅" if won else "❌" if lost else "•"
-        window = s["reportedAt"][11:16]
-        if s["completedAt"]:
-            window += "–" + s["completedAt"][11:16]
-        conf = f" · {s['confidence']}" if s["confidence"] else ""
-        pnl_text = f" ({pnl})" if pnl else ""
-        lines.append(f"{mark} {s['contract']} — {result}{pnl_text}{conf} · {window}")
+        time_label = s["reportedAt"][11:16] if s.get("reportedAt") else ""
+        conf = f" · {s['confidence']}" if s.get("confidence") else ""
+        if s.get("kind") == "generated":
+            act = (s.get("action") or "").upper()
+            arrow = "🟢" if act in ("BUY", "CE") else "🔴" if act in ("SELL", "PE") else "🔔"
+            detail = []
+            if s.get("entry"):
+                detail.append(f"entry {s['entry']}")
+            if s.get("stop"):
+                detail.append(f"SL {s['stop']}")
+            if s.get("target"):
+                detail.append(f"target {s['target']}")
+            head = f"{arrow} NEW {s['contract']}" + (f" — {s['action']}" if s.get("action") else "")
+            body = f" ({'; '.join(detail)})" if detail else ""
+            lines.append(head + body + conf + (f" · {time_label}" if time_label else ""))
+        else:
+            result = s.get("result", "")
+            pnl = s.get("pnl", "")
+            won = "profit" in result.lower() or pnl.startswith("+")
+            lost = "loss" in result.lower() or "stop" in result.lower() or pnl.startswith("-")
+            mark = "✅" if won else "❌" if lost else "•"
+            window = time_label + ("–" + s["completedAt"][11:16] if s.get("completedAt") else "")
+            pnl_text = f" ({pnl})" if pnl else ""
+            lines.append(f"{mark} {s['contract']} — {result}{pnl_text}{conf} · {window}")
     lines.append("")
     lines.append(f"As of {payload.get('lastUpdated', '')}")
     return "\n".join(lines)
@@ -1598,13 +1658,13 @@ def main() -> None:
     # Alert on signals the engine recorded since we last alerted — this catches
     # signals that fired and resolved between polls (the active-trigger path below
     # only fires if a poll lands while a signal is live). Deduped by signal key.
-    fired = new_fired_signals(payload, state)
+    fired = new_signal_alerts(payload, state)
     if fired:
         try:
             send_telegram(build_fired_signal_message(fired, payload), channel="signal")
             existing_keys = state.get("alerted_signal_keys")
-            existing_keys = existing_keys if isinstance(existing_keys, list) else []
-            state["alerted_signal_keys"] = (existing_keys + [s["key"] for s in fired])[-500:]
+            existing_keys = [_signal_day_key(k) for k in existing_keys] if isinstance(existing_keys, list) else []
+            state["alerted_signal_keys"] = (existing_keys + [s["dayKey"] for s in fired])[-500:]
             update_status_state(
                 state,
                 payload=payload,
