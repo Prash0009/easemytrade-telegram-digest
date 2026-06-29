@@ -921,6 +921,83 @@ def build_completed_trade_archive(
     return archive
 
 
+# --- Engine-recorded signal alerts -------------------------------------------
+# The active-trigger path only fires if a poll catches a signal *while it is
+# live*. Signals that fire and resolve between 5-minute polls were missed. These
+# helpers read the engine's own completed-trade records (profitReview /
+# profitReviewByIndex) so every signal the engine logged gets alerted once.
+INDEX_REVIEW_SOURCES = (
+    ("NIFTY", ("profitReview",)),
+    ("BANKNIFTY", ("profitReviewByIndex", "bankNifty")),
+    ("FINNIFTY", ("profitReviewByIndex", "finNifty")),
+    ("SENSEX", ("profitReviewByIndex", "sensex")),
+)
+
+
+def _review_node(payload: dict[str, Any], path: tuple[str, ...]) -> dict[str, Any]:
+    node: Any = payload
+    for key in path:
+        node = node.get(key) if isinstance(node, dict) else None
+        if node is None:
+            return {}
+    return node if isinstance(node, dict) else {}
+
+
+def engine_completed_signals(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for label, path in INDEX_REVIEW_SOURCES:
+        review = _review_node(payload, path)
+        for trade in review.get("trades") or []:
+            if not isinstance(trade, dict):
+                continue
+            contract = str(trade.get("signal") or "").strip()
+            reported = str(trade.get("reportedAt") or "").strip()
+            if not contract or not reported:
+                continue
+            out.append({
+                "label": label,
+                "contract": contract,
+                "reportedAt": reported,
+                "completedAt": str(trade.get("completedAt") or "").strip(),
+                "result": str(trade.get("displayResult") or trade.get("result") or "").strip(),
+                "pnl": str(trade.get("pnlLtp") or trade.get("pnl") or "").strip(),
+                "confidence": str(trade.get("confidence") or "").strip(),
+                "key": f"{label}|{contract}|{reported}",
+            })
+    return out
+
+
+def new_fired_signals(payload: dict[str, Any], state: dict[str, Any]) -> list[dict[str, Any]]:
+    today = now_ist_label()[:10]
+    alerted = state.get("alerted_signal_keys")
+    alerted_set = set(alerted) if isinstance(alerted, list) else set()
+    fresh = [
+        s for s in engine_completed_signals(payload)
+        if s["reportedAt"][:10] == today and s["key"] not in alerted_set
+    ]
+    fresh.sort(key=lambda s: s["reportedAt"])
+    return fresh
+
+
+def build_fired_signal_message(signals: list[dict[str, Any]], payload: dict[str, Any]) -> str:
+    lines = ["EaseMyTrade — signal update"]
+    for s in signals:
+        result = s["result"]
+        pnl = s["pnl"]
+        won = "profit" in result.lower() or pnl.startswith("+")
+        lost = "loss" in result.lower() or "stop" in result.lower() or pnl.startswith("-")
+        mark = "✅" if won else "❌" if lost else "•"
+        window = s["reportedAt"][11:16]
+        if s["completedAt"]:
+            window += "–" + s["completedAt"][11:16]
+        conf = f" · {s['confidence']}" if s["confidence"] else ""
+        pnl_text = f" ({pnl})" if pnl else ""
+        lines.append(f"{mark} {s['contract']} — {result}{pnl_text}{conf} · {window}")
+    lines.append("")
+    lines.append(f"As of {payload.get('lastUpdated', '')}")
+    return "\n".join(lines)
+
+
 def classify_signal_state(payload: dict[str, Any], state: dict[str, Any]) -> tuple[set[str], dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
     previous = state.get("active_trades") if isinstance(state.get("active_trades"), dict) else {}
     current = active_trade_snapshot(payload)
@@ -1517,6 +1594,50 @@ def main() -> None:
         save_state(state)
         print("Outside 09:00-16:00 IST send window; recorded state without sending.")
         return
+
+    # Alert on signals the engine recorded since we last alerted — this catches
+    # signals that fired and resolved between polls (the active-trigger path below
+    # only fires if a poll lands while a signal is live). Deduped by signal key.
+    fired = new_fired_signals(payload, state)
+    if fired:
+        try:
+            send_telegram(build_fired_signal_message(fired, payload), channel="signal")
+            existing_keys = state.get("alerted_signal_keys")
+            existing_keys = existing_keys if isinstance(existing_keys, list) else []
+            state["alerted_signal_keys"] = (existing_keys + [s["key"] for s in fired])[-500:]
+            update_status_state(
+                state,
+                payload=payload,
+                payload_source=payload_source,
+                signature=signature,
+                status="Sent fired-signal alert",
+                detail=f"Alerted {len(fired)} newly recorded signal(s) from the engine trade record.",
+                active_trades=next_active_trades,
+                observed_setups=observed_setups,
+                completed_trades_archive=completed_trades_archive,
+                candidates=current_trades,
+                sent=True,
+            )
+            save_state(state)
+            print(f"Sent fired-signal alert for {len(fired)} signal(s).")
+            return
+        except Exception as exc:  # noqa: BLE001
+            update_status_state(
+                state,
+                payload=payload,
+                payload_source=payload_source,
+                signature=signature,
+                status="Send failed",
+                detail=f"Fired-signal alert failed: {exc}",
+                active_trades=next_active_trades,
+                observed_setups=observed_setups,
+                completed_trades_archive=completed_trades_archive,
+                candidates=current_trades,
+                failed=True,
+            )
+            save_state(state)
+            print(f"Fired-signal alert failed: {exc}")
+            raise
 
     if not market_is_open(payload) and not hold_reminder_due and not args.always_send:
         update_status_state(
