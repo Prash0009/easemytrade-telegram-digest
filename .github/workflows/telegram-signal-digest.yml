@@ -88,3 +88,102 @@ jobs:
           git commit -m "chore: update telegram signal digest state [skip ci]"
           git pull --rebase origin main
           git push origin main
+
+  # Keeps www.easemytrade.in/data/market.json fresh by riding this workflow's
+  # reliably dispatched cadence (external cron every ~2 min). GitHub throttles
+  # native `schedule` triggers heavily — on 2026-07-06 the site repo's own
+  # scheduled refresh fired only twice all day, freezing the public snapshot
+  # at "13:37 IST". This job is fully independent of the digest job above and
+  # is marked continue-on-error so it can never affect digest delivery.
+  refresh-site-market-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+
+    steps:
+      - name: Checkout easemytrade site (write deploy key)
+        uses: actions/checkout@v5
+        with:
+          repository: Prash0009/easemytrade
+          ssh-key: ${{ secrets.EASEMYTRADE_PUSH_KEY }}
+          path: site
+          fetch-depth: 0
+
+      - name: Decide whether a refresh is due
+        id: gate
+        run: |
+          dow=$(TZ=Asia/Kolkata date +%u)
+          now_ist=$(TZ=Asia/Kolkata date +%H%M)
+          if [ "$dow" -gt 5 ] || [ "$now_ist" -lt 905 ] || [ "$now_ist" -gt 1550 ]; then
+            echo "due=false" >> "$GITHUB_OUTPUT"
+            echo "Outside the Mon-Fri 09:05-15:50 IST refresh window."
+            exit 0
+          fi
+          last=$(git -C site log -1 --format=%ct -- data/market.json)
+          age=$(( $(date +%s) - ${last:-0} ))
+          if [ "$age" -lt 480 ]; then
+            echo "due=false" >> "$GITHUB_OUTPUT"
+            echo "market.json is ${age}s old; fresh enough, skipping."
+          else
+            echo "due=true" >> "$GITHUB_OUTPUT"
+            echo "market.json is ${age}s old; regenerating."
+          fi
+
+      - name: Checkout signal tracker (read deploy key)
+        if: steps.gate.outputs.due == 'true'
+        uses: actions/checkout@v5
+        with:
+          repository: Prash0009/nifty-signal-tracker
+          ssh-key: ${{ secrets.TRACKER_READ_KEY }}
+          path: tracker
+
+      - name: Set up Python
+        if: steps.gate.outputs.due == 'true'
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: tracker/requirements.txt
+
+      - name: Install dependencies
+        if: steps.gate.outputs.due == 'true'
+        run: pip install -r tracker/requirements.txt
+
+      - name: Generate market overview
+        if: steps.gate.outputs.due == 'true'
+        env:
+          TRACKER_ROOT: ${{ github.workspace }}/tracker
+        run: |
+          cd site
+          python scripts/generate_market_overview.py
+
+      - name: Commit refreshed data
+        if: steps.gate.outputs.due == 'true'
+        run: |
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market.json data/telegram_signal_state.json data/completed_trades_log.jsonl
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          commit_message="chore(data): refresh market overview [skip ci]"
+          git commit -m "$commit_message"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin main; then
+              exit 0
+            fi
+            echo "Push failed on attempt $attempt; rebuilding commit on latest origin/main."
+            git rebase --abort || true
+            git fetch origin main
+            git reset --soft origin/main
+            git add data/market.json data/telegram_signal_state.json data/completed_trades_log.jsonl
+            if git diff --cached --quiet; then
+              echo "No data changes remain after syncing with origin/main."
+              exit 0
+            fi
+            git commit -m "$commit_message"
+          done
+          echo "Data push failed after 3 attempts."
+          exit 1
