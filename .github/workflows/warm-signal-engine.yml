@@ -1,0 +1,47 @@
+name: Warm Signal Engine
+
+# Reliable driver for the engine's real-time "signal generated" Telegram push.
+# pushRealtimeSignalAlerts (in easemytrade api/live-market.js) runs ONLY when the
+# serverless function executes, and only catches a signal while it is live
+# (triggerQualified). Nothing else forced frequent execution, so short-lived
+# confirmed signals lived and died between cache-served requests and never
+# alerted (e.g. a 91% NIFTY 24050 CE that fired and hit stop in ~5 min on
+# 2026-07-09 produced zero generated rows).
+#
+# This workflow is DECOUPLED from the digest workflow's concurrency group on
+# purpose: it triggers via workflow_run whenever the externally-dispatched
+# digest workflow is *requested* (~every 2 min), so it fires even when the
+# digest run itself is queued/cancelled by that group. It only pings the
+# forceLive endpoint (no-store => always runs the function), so the generation
+# capture sees any live signal within ~35s. The engine's 36h sent-marker dedup
+# guarantees one alert per signal. No secrets (scope=public).
+
+on:
+  workflow_run:
+    workflows: ["EaseMyTrade Telegram Signal Digest"]
+    types: [requested]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping forceLive during market hours to drive real-time signal alerts
+        run: |
+          dow=$(TZ=Asia/Kolkata date +%u)
+          now=$(TZ=Asia/Kolkata date +%H%M)
+          if [ "$dow" -gt 5 ] || [ "$now" -lt 0915 ] || [ "$now" -gt 1531 ]; then
+            echo "Outside Mon-Fri 09:15-15:31 IST; skipping engine warm pings."
+            exit 0
+          fi
+          url="https://www.easemytrade.in/api/live-market/?forceLive=1&scope=public"
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "${url}&t=$(date +%s%N)" || echo "000")
+            echo "ping $i -> HTTP $code at $(TZ=Asia/Kolkata date +%H:%M:%S) IST"
+            if [ "$i" -lt 3 ]; then sleep 35; fi
+          done
+          exit 0
