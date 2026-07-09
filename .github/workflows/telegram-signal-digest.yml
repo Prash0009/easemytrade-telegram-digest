@@ -187,3 +187,39 @@ jobs:
           done
           echo "Data push failed after 3 attempts."
           exit 1
+
+  # Reliable driver for the engine's real-time "signal generated" Telegram push.
+  # That push (pushRealtimeSignalAlerts in api/live-market.js) runs ONLY when the
+  # serverless function executes, and only catches a signal while it is live
+  # (triggerQualified). Nothing else forces frequent execution, so short-lived
+  # signals (a 91% NIFTY 24050 CE that fired and hit stop in ~5 min on
+  # 2026-07-09) lived and died between cache-served requests: the function never
+  # ran during their live window, so no "signal generated" alert fired even
+  # though the trade was tracked and completed.
+  # This job pings the forceLive endpoint (no-store => always runs the function)
+  # several times per dispatch during market hours, so every live signal is seen
+  # within ~30s. The engine's own 36h sent-marker dedup guarantees one alert per
+  # signal regardless of how many pings see it. No secrets: scope=public.
+  # continue-on-error so it can never affect digest delivery.
+  warm-signal-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+
+    steps:
+      - name: Ping forceLive during market hours to drive real-time signal alerts
+        run: |
+          dow=$(TZ=Asia/Kolkata date +%u)
+          now=$(TZ=Asia/Kolkata date +%H%M)
+          if [ "$dow" -gt 5 ] || [ "$now" -lt 0915 ] || [ "$now" -gt 1531 ]; then
+            echo "Outside Mon-Fri 09:15-15:31 IST; skipping engine warm pings."
+            exit 0
+          fi
+          url="https://www.easemytrade.in/api/live-market/?forceLive=1&scope=public"
+          # External cron dispatches this workflow ~every 2 min; ping every ~28s
+          # so consecutive runs give near-continuous ~30s coverage of live signals.
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "${url}&t=$(date +%s%N)" || echo "000")
+            echo "ping $i -> HTTP $code at $(TZ=Asia/Kolkata date +%H:%M:%S) IST"
+            [ "$i" -lt 3 ] && sleep 35
+          done
