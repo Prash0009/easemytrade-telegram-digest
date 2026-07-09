@@ -1,19 +1,19 @@
 {
-  "last_signature": "e063e876a81f1e5b3f2d0800c25006bab93e177790cb8ff10eab67b1a4e19628",
-  "last_updated": "2026-07-09 10:48 IST",
-  "signal_reported_at": "2026-07-09 10:45 IST",
+  "last_signature": "395592eff496f7974b4472a0edd912c0315edd7adb3fd4c44c3b27c81249c38d",
+  "last_updated": "2026-07-09 10:50 IST",
+  "signal_reported_at": "2026-07-09 10:50 IST",
   "payload_source": "live",
   "active_trades": {},
   "observed_setups": {},
   "last_hold_reminder_at": "2026-05-08 15:19 IST",
-  "last_bot_run_at": "2026-07-09 10:48 IST",
-  "telegram_status": "No new signal",
-  "last_status_detail": "No index has a trigger-qualified buy or sell signal, so Telegram was not sent.",
+  "last_bot_run_at": "2026-07-09 10:50 IST",
+  "telegram_status": "Sent fired-signal alert",
+  "last_status_detail": "Alerted 2 newly recorded signal(s) from the engine trade record.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "",
   "current_signal_contract": "",
-  "last_message_sent_at": "2026-07-08 12:46 IST",
+  "last_message_sent_at": "2026-07-09 10:50 IST",
   "last_message_action": "",
   "last_message_contract": "",
   "completed_trades_archive": [],
@@ -44,6 +44,8 @@
     "FINNIFTY|FINNIFTY 27050 CE|2026-07-06",
     "SENSEX|SENSEX 78300 CE|2026-07-06",
     "BANKNIFTY|BANKNIFTY 58300 PE|2026-07-07",
-    "FINNIFTY|FINNIFTY 26750 PE|2026-07-08"
+    "FINNIFTY|FINNIFTY 26750 PE|2026-07-08",
+    "NIFTY|NIFTY 24050 CE|2026-07-09",
+    "BANKNIFTY|BANKNIFTY 57300 CE|2026-07-09"
   ]
 }
