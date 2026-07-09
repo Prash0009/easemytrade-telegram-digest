@@ -221,5 +221,6 @@ jobs:
           for i in 1 2 3; do
             code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "${url}&t=$(date +%s%N)" || echo "000")
             echo "ping $i -> HTTP $code at $(TZ=Asia/Kolkata date +%H:%M:%S) IST"
-            [ "$i" -lt 3 ] && sleep 35
+            if [ "$i" -lt 3 ]; then sleep 35; fi
           done
+          exit 0
