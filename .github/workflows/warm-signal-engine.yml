@@ -39,9 +39,20 @@ jobs:
             exit 0
           fi
           url="https://www.easemytrade.in/api/live-market/?forceLive=1&scope=public"
-          for i in 1 2 3; do
-            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "${url}&t=$(date +%s%N)" || echo "000")
+          # Continuous coverage: dispatches arrive ~every 2 min, so ping for
+          # ~110s at ~15s spacing. Signals are born on confirmed 5-min candle
+          # closes; with a function execution every <=15s, a new signal is
+          # detected (and the Telegram alert sent by the engine) within
+          # ~15-20s of existing — the practical "instant" for a serverless
+          # engine that only computes when invoked. Each forceLive call takes
+          # a few seconds itself, which also spaces the loop naturally.
+          # Overlapping runs are harmless: the engine dedups alerts per signal.
+          START=$(date +%s)
+          i=0
+          while [ $(( $(date +%s) - START )) -lt 110 ]; do
+            i=$((i+1))
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 45 "${url}&t=$(date +%s%N)" || echo "000")
             echo "ping $i -> HTTP $code at $(TZ=Asia/Kolkata date +%H:%M:%S) IST"
-            if [ "$i" -lt 3 ]; then sleep 35; fi
+            sleep 12
           done
           exit 0
