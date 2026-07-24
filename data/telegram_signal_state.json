@@ -6,7 +6,7 @@
   "active_trades": {},
   "observed_setups": {},
   "last_hold_reminder_at": "2026-05-08 15:19 IST",
-  "last_bot_run_at": "2026-07-24 08:30 IST",
+  "last_bot_run_at": "2026-07-24 08:32 IST",
   "telegram_status": "Outside send window",
   "last_status_detail": "Telegram sends are limited to 09:00-16:00 IST.",
   "last_signal_action": "Sell",
