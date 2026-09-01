@@ -1,5 +1,5 @@
 {
-  "last_signature": "cb67b9f680c0743440eec92c0fc4a93a38ff8b1d020ece9e13a0b5625b337423",
+  "last_signature": "c8d41553e7f3fc55cc237ce36c7697ce92bc8c125adb1727037081831227aebf",
   "last_updated": "2026-09-01 15:30 IST",
   "signal_reported_at": "2026-09-01 15:30 IST",
   "payload_source": "live",
@@ -146,7 +146,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-09-01 15:30 IST",
-  "last_bot_run_at": "2026-09-01 16:56 IST",
+  "last_bot_run_at": "2026-09-01 16:58 IST",
   "telegram_status": "Outside send window",
   "last_status_detail": "Telegram sends are limited to 09:00-16:00 IST.",
   "last_signal_action": "Sell",
