@@ -1,7 +1,7 @@
 {
-  "last_signature": "5c8295e10c89092bf07612b920de9a117354e9245b3e413577a28789117b4cf2",
-  "last_updated": "2026-09-01 15:06 IST",
-  "signal_reported_at": "2026-09-01 15:05 IST",
+  "last_signature": "ad764433bf67b26b5e3e7f96deaae8b85e0d2d03346e175d5bd39f04fd865e2b",
+  "last_updated": "2026-09-01 15:08 IST",
+  "signal_reported_at": "2026-09-01 15:02 IST",
   "payload_source": "live",
   "active_trades": {
     "NIFTY": {
@@ -145,15 +145,15 @@
     }
   },
   "observed_setups": {},
-  "last_hold_reminder_at": "2026-09-01 15:06 IST",
-  "last_bot_run_at": "2026-09-01 15:06 IST",
+  "last_hold_reminder_at": "2026-09-01 15:08 IST",
+  "last_bot_run_at": "2026-09-01 15:08 IST",
   "telegram_status": "Healthy",
   "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
   "current_signal_contract": "NIFTY 24000 PE",
-  "last_message_sent_at": "2026-09-01 15:06 IST",
+  "last_message_sent_at": "2026-09-01 15:08 IST",
   "last_message_action": "Sell",
   "last_message_contract": "NIFTY 24000 PE",
   "completed_trades_archive": [],
