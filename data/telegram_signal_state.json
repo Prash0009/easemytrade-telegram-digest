@@ -146,9 +146,9 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-09-01 15:30 IST",
-  "last_bot_run_at": "2026-09-01 15:30 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-09-01 15:32 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
@@ -221,5 +221,5 @@
     "SENSEX|SENSEX 78200 CE|2026-07-31",
     "NIFTY|NIFTY 24000 PE|2026-09-01"
   ],
-  "last_skipped_duplicate_at": "2026-09-01 15:28 IST"
+  "last_skipped_duplicate_at": "2026-09-01 15:32 IST"
 }
