@@ -1,7 +1,7 @@
 {
   "last_signature": "6230f948d50301d641c4a429557ef130952352ca77ccb074bb46dea32f9ea1dd",
-  "last_updated": "2026-09-01 14:10 IST",
-  "signal_reported_at": "2026-09-01 13:50 IST",
+  "last_updated": "2026-09-01 14:12 IST",
+  "signal_reported_at": "2026-09-01 14:00 IST",
   "payload_source": "live",
   "active_trades": {
     "NIFTY": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-09-01 13:50 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 24000 PE signal was reported at 2026-09-01 14:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 24000 PE signal was reported at 2026-09-01 14:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 23,959.75.",
+      "watch": "Confirmed NIFTY 24000 PE signal was reported at 2026-09-01 14:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 23,960.15.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,13 +282,13 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-09-01 14:10 IST"
+      "liveEntryAt": "2026-09-01 14:12 IST"
     }
   },
   "last_hold_reminder_at": "2026-09-01 14:10 IST",
-  "last_bot_run_at": "2026-09-01 14:10 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-09-01 14:12 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
@@ -360,5 +360,6 @@
     "FINNIFTY|FINNIFTY 26300 CE|2026-07-29",
     "SENSEX|SENSEX 78200 CE|2026-07-31",
     "NIFTY|NIFTY 24000 PE|2026-09-01"
-  ]
+  ],
+  "last_skipped_duplicate_at": "2026-09-01 14:12 IST"
 }
