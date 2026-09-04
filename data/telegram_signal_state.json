@@ -1,7 +1,7 @@
 {
-  "last_signature": "f21c71ae75f7f1b49d9e3756cc88eaebdde96f145a57f128e90f2891a8dc7d58",
-  "last_updated": "2026-09-04 11:08 IST",
-  "signal_reported_at": "2026-09-04 11:05 IST",
+  "last_signature": "4a1c298a2d087c05f96da6aebb751e3d87202102d80c9a790a6e2134028e13d0",
+  "last_updated": "2026-09-04 11:10 IST",
+  "signal_reported_at": "2026-09-04 11:06 IST",
   "payload_source": "live",
   "active_trades": {
     "FINNIFTY": {
@@ -144,15 +144,15 @@
     }
   },
   "observed_setups": {},
-  "last_hold_reminder_at": "2026-09-04 11:08 IST",
-  "last_bot_run_at": "2026-09-04 11:08 IST",
+  "last_hold_reminder_at": "2026-09-04 11:10 IST",
+  "last_bot_run_at": "2026-09-04 11:10 IST",
   "telegram_status": "Healthy",
   "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
   "current_signal_contract": "FINNIFTY 26050 CE",
-  "last_message_sent_at": "2026-09-04 11:08 IST",
+  "last_message_sent_at": "2026-09-04 11:10 IST",
   "last_message_action": "Buy",
   "last_message_contract": "FINNIFTY 26050 CE",
   "completed_trades_archive": [],
