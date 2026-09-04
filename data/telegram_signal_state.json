@@ -1,6 +1,6 @@
 {
   "last_signature": "8fd3e6d5571f6a43c04545b1c565b0fa967ddfc195688ec324b2a90711370c9b",
-  "last_updated": "2026-09-04 15:26 IST",
+  "last_updated": "2026-09-04 15:28 IST",
   "signal_reported_at": "2026-09-04 15:25 IST",
   "payload_source": "live",
   "active_trades": {
@@ -145,7 +145,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-09-04 15:18 IST",
-  "last_bot_run_at": "2026-09-04 15:26 IST",
+  "last_bot_run_at": "2026-09-04 15:28 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -221,5 +221,5 @@
     "NIFTY|NIFTY 24000 PE|2026-09-01",
     "FINNIFTY|FINNIFTY 26050 CE|2026-09-04"
   ],
-  "last_skipped_duplicate_at": "2026-09-04 15:26 IST"
+  "last_skipped_duplicate_at": "2026-09-04 15:28 IST"
 }
