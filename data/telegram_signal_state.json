@@ -1,6 +1,6 @@
 {
   "last_signature": "214bedad44f1f6162b6776d0d5f0befb9a44b25aaa4bda7cd7ddcea2930ebdb5",
-  "last_updated": "2026-09-04 10:52 IST",
+  "last_updated": "2026-09-04 10:54 IST",
   "signal_reported_at": "2026-09-04 10:50 IST",
   "payload_source": "live",
   "active_trades": {
@@ -199,7 +199,7 @@
       "reportedAt": "2026-09-04 10:00 IST",
       "holdRule": "Active call-side trade remains live until stop-loss, target, opposite sell signal, or 3:15 PM IST.",
       "note": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 26,077.55.",
+      "watch": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 26,081.15.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -280,13 +280,13 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-09-04 10:52 IST"
+      "liveEntryAt": "2026-09-04 10:54 IST"
     }
   },
   "last_hold_reminder_at": "2026-09-04 10:52 IST",
-  "last_bot_run_at": "2026-09-04 10:52 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-09-04 10:54 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
@@ -360,5 +360,5 @@
     "NIFTY|NIFTY 24000 PE|2026-09-01",
     "FINNIFTY|FINNIFTY 26050 CE|2026-09-04"
   ],
-  "last_skipped_duplicate_at": "2026-09-04 10:48 IST"
+  "last_skipped_duplicate_at": "2026-09-04 10:54 IST"
 }
