@@ -1,7 +1,7 @@
 {
-  "last_signature": "3734dd3a8103bad7af700b6bedf451d343d2acfdcd090b39a2d5dd0e7aad9b98",
+  "last_signature": "8d7b302b518eb68d7c75baa5a9df92e54b0f5790d39f8affcfaec83e62ba5faf",
   "last_updated": "2026-09-04 15:30 IST",
-  "signal_reported_at": "2026-09-04 15:18 IST",
+  "signal_reported_at": "2026-09-04 15:30 IST",
   "payload_source": "live",
   "active_trades": {
     "FINNIFTY": {
@@ -145,9 +145,9 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-09-04 15:30 IST",
-  "last_bot_run_at": "2026-09-04 15:30 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-09-04 15:32 IST",
+  "telegram_status": "Market closed",
+  "last_status_detail": "Market is closed, so fresh trade alerts are not sent from this snapshot.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
