@@ -1,6 +1,6 @@
 {
-  "last_signature": "1ebbaa78dfb2bb7d624ba9e5d6a1d52b3638817eac5448574ad601dd448c3e68",
-  "last_updated": "2026-09-04 10:06 IST",
+  "last_signature": "899ae238a6f85fcd0aea865a52f27cb67599f1360fc3bce704cfb6e2aaeb8661",
+  "last_updated": "2026-09-04 10:08 IST",
   "signal_reported_at": "2026-09-04 10:05 IST",
   "payload_source": "live",
   "active_trades": {
@@ -199,7 +199,7 @@
       "reportedAt": "2026-09-04 10:00 IST",
       "holdRule": "Active call-side trade remains live until stop-loss, target, opposite sell signal, or 3:15 PM IST.",
       "note": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 26,071.00.",
+      "watch": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 26,058.40.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -280,18 +280,18 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-09-04 10:06 IST"
+      "liveEntryAt": "2026-09-04 10:08 IST"
     }
   },
-  "last_hold_reminder_at": "2026-09-01 15:30 IST",
-  "last_bot_run_at": "2026-09-04 10:06 IST",
-  "telegram_status": "Sent fired-signal alert",
-  "last_status_detail": "Alerted 1 newly recorded signal(s) from the engine trade record.",
+  "last_hold_reminder_at": "2026-09-04 10:08 IST",
+  "last_bot_run_at": "2026-09-04 10:08 IST",
+  "telegram_status": "Healthy",
+  "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
   "current_signal_contract": "FINNIFTY 26050 CE",
-  "last_message_sent_at": "2026-09-04 10:06 IST",
+  "last_message_sent_at": "2026-09-04 10:08 IST",
   "last_message_action": "Buy",
   "last_message_contract": "FINNIFTY 26050 CE",
   "completed_trades_archive": [],
