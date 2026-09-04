@@ -1,7 +1,7 @@
 {
   "last_signature": "899ae238a6f85fcd0aea865a52f27cb67599f1360fc3bce704cfb6e2aaeb8661",
-  "last_updated": "2026-09-04 10:46 IST",
-  "signal_reported_at": "2026-09-04 10:45 IST",
+  "last_updated": "2026-09-04 10:47 IST",
+  "signal_reported_at": "2026-09-04 10:36 IST",
   "payload_source": "live",
   "active_trades": {
     "FINNIFTY": {
@@ -199,7 +199,7 @@
       "reportedAt": "2026-09-04 10:00 IST",
       "holdRule": "Active call-side trade remains live until stop-loss, target, opposite sell signal, or 3:15 PM IST.",
       "note": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 26,081.70.",
+      "watch": "Confirmed FINNIFTY 26050 CE signal was reported at 2026-09-04 10:00 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 26,080.25.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -280,13 +280,13 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-09-04 10:46 IST"
+      "liveEntryAt": "2026-09-04 10:47 IST"
     }
   },
   "last_hold_reminder_at": "2026-09-04 10:46 IST",
-  "last_bot_run_at": "2026-09-04 10:46 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-09-04 10:48 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
@@ -360,5 +360,5 @@
     "NIFTY|NIFTY 24000 PE|2026-09-01",
     "FINNIFTY|FINNIFTY 26050 CE|2026-09-04"
   ],
-  "last_skipped_duplicate_at": "2026-09-04 10:12 IST"
+  "last_skipped_duplicate_at": "2026-09-04 10:48 IST"
 }
