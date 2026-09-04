@@ -145,7 +145,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-09-04 13:06 IST",
-  "last_bot_run_at": "2026-09-04 13:10 IST",
+  "last_bot_run_at": "2026-09-04 13:12 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -221,5 +221,5 @@
     "NIFTY|NIFTY 24000 PE|2026-09-01",
     "FINNIFTY|FINNIFTY 26050 CE|2026-09-04"
   ],
-  "last_skipped_duplicate_at": "2026-09-04 13:10 IST"
+  "last_skipped_duplicate_at": "2026-09-04 13:12 IST"
 }
