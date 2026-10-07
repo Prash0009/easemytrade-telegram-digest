@@ -1,6 +1,6 @@
 {
   "last_signature": "b9c0f0712e7d8a7613b30510b74127b41d97d12a878e7f9a4de47366261051ff",
-  "last_updated": "2026-10-07 14:20 IST",
+  "last_updated": "2026-10-07 14:22 IST",
   "signal_reported_at": "2026-10-07 13:55 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-10-07 13:55 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 22550 PE signal was reported at 2026-10-07 13:55 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 22550 PE signal was reported at 2026-10-07 13:55 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 22,580.40.",
+      "watch": "Confirmed NIFTY 22550 PE signal was reported at 2026-10-07 13:55 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 22,584.80.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,13 +282,13 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-10-07 14:20 IST"
+      "liveEntryAt": "2026-10-07 14:22 IST"
     }
   },
   "last_hold_reminder_at": "2026-10-07 14:20 IST",
-  "last_bot_run_at": "2026-10-07 14:20 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-10-07 14:22 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
@@ -364,5 +364,5 @@
     "FINNIFTY|FINNIFTY 24900 CE|2026-10-06",
     "NIFTY|NIFTY 22550 PE|2026-10-07"
   ],
-  "last_skipped_duplicate_at": "2026-10-07 14:12 IST"
+  "last_skipped_duplicate_at": "2026-10-07 14:22 IST"
 }
