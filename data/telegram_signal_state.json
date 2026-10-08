@@ -146,9 +146,9 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-10-08 09:20 IST",
-  "last_bot_run_at": "2026-10-08 09:20 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-10-08 09:22 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
@@ -224,5 +224,5 @@
     "FINNIFTY|FINNIFTY 24900 CE|2026-10-06",
     "NIFTY|NIFTY 22550 PE|2026-10-07"
   ],
-  "last_skipped_duplicate_at": "2026-10-07 15:30 IST"
+  "last_skipped_duplicate_at": "2026-10-08 09:22 IST"
 }
