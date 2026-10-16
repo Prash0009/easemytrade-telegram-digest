@@ -1,7 +1,7 @@
 {
-  "last_signature": "1095dce2a549c3f801cf20c50a2b8d8d4ec55bcfb892a2b47b9b999752f17fb6",
-  "last_updated": "2026-10-16 10:38 IST",
-  "signal_reported_at": "2026-10-16 10:15 IST",
+  "last_signature": "0564d0dd0a0739462b2b810f5f6b239b102ec8104c828f3965c7dea50d6615e1",
+  "last_updated": "2026-10-16 10:40 IST",
+  "signal_reported_at": "2026-10-16 10:40 IST",
   "payload_source": "live",
   "active_trades": {
     "SENSEX": {
@@ -144,15 +144,15 @@
     }
   },
   "observed_setups": {},
-  "last_hold_reminder_at": "2026-10-16 10:36 IST",
-  "last_bot_run_at": "2026-10-16 10:38 IST",
-  "telegram_status": "Duplicate skipped",
-  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
+  "last_hold_reminder_at": "2026-10-16 10:40 IST",
+  "last_bot_run_at": "2026-10-16 10:40 IST",
+  "telegram_status": "Healthy",
+  "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
   "current_signal_contract": "SENSEX 74600 CE",
-  "last_message_sent_at": "2026-10-16 10:36 IST",
+  "last_message_sent_at": "2026-10-16 10:40 IST",
   "last_message_action": "Buy",
   "last_message_contract": "SENSEX 74600 CE",
   "completed_trades_archive": [],
