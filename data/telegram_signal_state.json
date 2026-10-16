@@ -1,6 +1,6 @@
 {
   "last_signature": "d34b4fd2e8bcc2a7a9bcd1b2e606d4beca8bf142b05cf63eb3d676b5e635880e",
-  "last_updated": "2026-10-16 15:20 IST",
+  "last_updated": "2026-10-16 15:22 IST",
   "signal_reported_at": "2026-10-16 15:18 IST",
   "payload_source": "live",
   "active_trades": {
@@ -145,7 +145,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-10-16 15:16 IST",
-  "last_bot_run_at": "2026-10-16 15:20 IST",
+  "last_bot_run_at": "2026-10-16 15:22 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -226,5 +226,5 @@
     "SENSEX|SENSEX 74500 CE|2026-10-16",
     "SENSEX|SENSEX 74600 CE|2026-10-16"
   ],
-  "last_skipped_duplicate_at": "2026-10-16 15:20 IST"
+  "last_skipped_duplicate_at": "2026-10-16 15:22 IST"
 }
