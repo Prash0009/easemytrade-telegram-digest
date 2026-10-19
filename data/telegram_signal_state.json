@@ -286,7 +286,7 @@
     }
   },
   "last_hold_reminder_at": "2026-10-19 13:58 IST",
-  "last_bot_run_at": "2026-10-19 14:00 IST",
+  "last_bot_run_at": "2026-10-19 14:02 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -368,5 +368,5 @@
     "SENSEX|SENSEX 74600 CE|2026-10-16",
     "NIFTY|NIFTY 22900 PE|2026-10-19"
   ],
-  "last_skipped_duplicate_at": "2026-10-19 14:00 IST"
+  "last_skipped_duplicate_at": "2026-10-19 14:02 IST"
 }
