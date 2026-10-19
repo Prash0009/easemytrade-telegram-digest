@@ -1,6 +1,6 @@
 {
   "last_signature": "bb1d6ceadff10078fa96479962c01bae18a627461c03f4195812bad01066833f",
-  "last_updated": "2026-10-19 13:48 IST",
+  "last_updated": "2026-10-19 13:50 IST",
   "signal_reported_at": "2026-10-19 13:20 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-10-19 13:20 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 22900 PE signal was reported at 2026-10-19 13:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 22900 PE signal was reported at 2026-10-19 13:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 22,858.15.",
+      "watch": "Confirmed NIFTY 22900 PE signal was reported at 2026-10-19 13:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 22,861.30.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,11 +282,11 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-10-19 13:48 IST"
+      "liveEntryAt": "2026-10-19 13:50 IST"
     }
   },
   "last_hold_reminder_at": "2026-10-19 13:46 IST",
-  "last_bot_run_at": "2026-10-19 13:48 IST",
+  "last_bot_run_at": "2026-10-19 13:50 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -368,5 +368,5 @@
     "SENSEX|SENSEX 74600 CE|2026-10-16",
     "NIFTY|NIFTY 22900 PE|2026-10-19"
   ],
-  "last_skipped_duplicate_at": "2026-10-19 13:48 IST"
+  "last_skipped_duplicate_at": "2026-10-19 13:50 IST"
 }
