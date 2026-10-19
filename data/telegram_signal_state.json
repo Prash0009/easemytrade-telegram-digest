@@ -1,6 +1,6 @@
 {
   "last_signature": "4992e1118af76ec124f28ad66f516fa4065aef941150f5327e9aa143a672695e",
-  "last_updated": "2026-10-19 14:10 IST",
+  "last_updated": "2026-10-19 14:12 IST",
   "signal_reported_at": "2026-10-19 13:20 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-10-19 13:20 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 22900 PE signal was reported at 2026-10-19 13:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 22900 PE signal was reported at 2026-10-19 13:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 22,887.25.",
+      "watch": "Confirmed NIFTY 22900 PE signal was reported at 2026-10-19 13:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 22,881.45.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,13 +282,13 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-10-19 14:10 IST"
+      "liveEntryAt": "2026-10-19 14:12 IST"
     }
   },
   "last_hold_reminder_at": "2026-10-19 14:10 IST",
-  "last_bot_run_at": "2026-10-19 14:10 IST",
-  "telegram_status": "Healthy",
-  "last_status_detail": "Telegram signal digest sent successfully.",
+  "last_bot_run_at": "2026-10-19 14:12 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
@@ -368,5 +368,5 @@
     "SENSEX|SENSEX 74600 CE|2026-10-16",
     "NIFTY|NIFTY 22900 PE|2026-10-19"
   ],
-  "last_skipped_duplicate_at": "2026-10-19 14:08 IST"
+  "last_skipped_duplicate_at": "2026-10-19 14:12 IST"
 }
