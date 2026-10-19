@@ -1,5 +1,5 @@
 {
-  "last_signature": "7458f84737ced1c35d805c4b71b96ed68b834b7304637b31943232ca5192a55c",
+  "last_signature": "68ae2faeceffcbdf996815f114f6cdba52e064a549a8c850625291d814316f50",
   "last_updated": "2026-10-16 15:30 IST",
   "signal_reported_at": "2026-10-16 15:30 IST",
   "payload_source": "live",
@@ -145,7 +145,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-10-16 15:30 IST",
-  "last_bot_run_at": "2026-10-19 09:12 IST",
+  "last_bot_run_at": "2026-10-19 09:14 IST",
   "telegram_status": "Market closed",
   "last_status_detail": "Market is closed, so fresh trade alerts are not sent from this snapshot.",
   "last_signal_action": "Sell",
