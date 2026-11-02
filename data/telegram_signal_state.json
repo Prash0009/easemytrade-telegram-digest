@@ -1,7 +1,7 @@
 {
   "last_signature": "464e4275bc6cf1dfab8e8d7c5b5b5683eacea9c604a0fa6d84abd7c5ce6fad5c",
-  "last_updated": "2026-11-02 15:24 IST",
-  "signal_reported_at": "2026-11-02 15:20 IST",
+  "last_updated": "2026-11-02 15:26 IST",
+  "signal_reported_at": "2026-11-02 15:24 IST",
   "payload_source": "live",
   "active_trades": {
     "BANKNIFTY": {
@@ -283,7 +283,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-11-02 15:22 IST",
-  "last_bot_run_at": "2026-11-02 15:24 IST",
+  "last_bot_run_at": "2026-11-02 15:26 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -367,5 +367,5 @@
     "FINNIFTY|FINNIFTY 24850 CE|2026-11-02",
     "BANKNIFTY|BANKNIFTY 55000 CE|2026-11-02"
   ],
-  "last_skipped_duplicate_at": "2026-11-02 15:24 IST"
+  "last_skipped_duplicate_at": "2026-11-02 15:26 IST"
 }
