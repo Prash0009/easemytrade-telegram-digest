@@ -1,6 +1,6 @@
 {
-  "last_signature": "5c6b2500ff9f3fce0c4cafa4f4bc56043c5e5451c02d0bb47adad72b44af9894",
-  "last_updated": "2026-11-02 10:56 IST",
+  "last_signature": "f58062ec227a12f0d6f4c3169f6a9d125d8aafbe510c355c05b9bdf1cf23bbdf",
+  "last_updated": "2026-11-02 10:58 IST",
   "signal_reported_at": "2026-11-02 10:55 IST",
   "payload_source": "live",
   "active_trades": {
@@ -337,7 +337,7 @@
       "reportedAt": "2026-11-02 10:45 IST",
       "holdRule": "Active call-side trade remains live until stop-loss, target, opposite sell signal, or 3:15 PM IST.",
       "note": "Confirmed BANKNIFTY 55000 CE signal was reported at 2026-11-02 10:45 IST with 90% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed BANKNIFTY 55000 CE signal was reported at 2026-11-02 10:45 IST with 90% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 54,937.20.",
+      "watch": "Confirmed BANKNIFTY 55000 CE signal was reported at 2026-11-02 10:45 IST with 90% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 54,915.90.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -418,18 +418,18 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-11-02 10:56 IST"
+      "liveEntryAt": "2026-11-02 10:58 IST"
     }
   },
-  "last_hold_reminder_at": "2026-11-02 10:56 IST",
-  "last_bot_run_at": "2026-11-02 10:56 IST",
+  "last_hold_reminder_at": "2026-11-02 10:58 IST",
+  "last_bot_run_at": "2026-11-02 10:58 IST",
   "telegram_status": "Healthy",
   "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
   "current_signal_contract": "BANKNIFTY 55000 CE",
-  "last_message_sent_at": "2026-11-02 10:56 IST",
+  "last_message_sent_at": "2026-11-02 10:58 IST",
   "last_message_action": "Buy",
   "last_message_contract": "BANKNIFTY 55000 CE",
   "completed_trades_archive": [],
