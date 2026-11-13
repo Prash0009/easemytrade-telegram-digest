@@ -1,6 +1,6 @@
 {
   "last_signature": "f336d40e35b4d0d4d934c5b514ac3215cb0ef060bc267c476622ebda80cac2d4",
-  "last_updated": "2026-11-13 14:18 IST",
+  "last_updated": "2026-11-13 14:20 IST",
   "signal_reported_at": "2026-11-13 12:15 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-11-13 12:15 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 25100 PE signal was reported at 2026-11-13 14:05 IST with 88% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 25100 PE signal was reported at 2026-11-13 14:05 IST with 88% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,073.85.",
+      "watch": "Confirmed NIFTY 25100 PE signal was reported at 2026-11-13 14:05 IST with 88% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,072.10.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,11 +282,11 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-11-13 14:18 IST"
+      "liveEntryAt": "2026-11-13 14:20 IST"
     }
   },
   "last_hold_reminder_at": "2026-11-02 15:30 IST",
-  "last_bot_run_at": "2026-11-13 14:18 IST",
+  "last_bot_run_at": "2026-11-13 14:20 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -371,5 +371,5 @@
     "BANKNIFTY|BANKNIFTY 55000 CE|2026-11-02",
     "NIFTY|NIFTY 25100 PE|2026-11-13"
   ],
-  "last_skipped_duplicate_at": "2026-11-13 14:18 IST"
+  "last_skipped_duplicate_at": "2026-11-13 14:20 IST"
 }
