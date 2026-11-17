@@ -1,7 +1,7 @@
 {
-  "last_signature": "fadb0e72fa652a1ac7a0c5255b4cbaebc76a8dbbd7b50866ca5a4aa2a92578cc",
+  "last_signature": "a09855953bfb7b19d8bc420a695863f50c9ae09775258eb5627ecda246a937a8",
   "last_updated": "2026-11-17 15:30 IST",
-  "signal_reported_at": "2026-11-17 11:15 IST",
+  "signal_reported_at": "2026-11-17 15:30 IST",
   "payload_source": "live",
   "active_trades": {
     "SENSEX": {
@@ -145,9 +145,9 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-11-17 15:18 IST",
-  "last_bot_run_at": "2026-11-17 15:30 IST",
-  "telegram_status": "Duplicate skipped",
-  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
+  "last_bot_run_at": "2026-11-17 15:32 IST",
+  "telegram_status": "Market closed",
+  "last_status_detail": "Market is closed, so fresh trade alerts are not sent from this snapshot.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
