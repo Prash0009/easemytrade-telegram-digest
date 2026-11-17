@@ -1,7 +1,7 @@
 {
-  "last_signature": "ac3e5888cda87bb38a1aaac2cc9558fe1daf0e82afdbfa4549ce45b4bb08d24d",
-  "last_updated": "2026-11-17 10:56 IST",
-  "signal_reported_at": "2026-11-17 10:46 IST",
+  "last_signature": "f35527cb25f35eec1f2ab4d31ea31a28a2a4084d49bfde69f3788f1e90f3abb3",
+  "last_updated": "2026-11-17 10:58 IST",
+  "signal_reported_at": "2026-11-17 10:55 IST",
   "payload_source": "live",
   "active_trades": {
     "SENSEX": {
@@ -199,7 +199,7 @@
       "reportedAt": "2026-11-17 10:20 IST",
       "holdRule": "Active call-side trade remains live until stop-loss, target, opposite sell signal, or 3:15 PM IST.",
       "note": "Confirmed SENSEX 82500 CE signal was reported at 2026-11-17 10:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed SENSEX 82500 CE signal was reported at 2026-11-17 10:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 82,557.95.",
+      "watch": "Confirmed SENSEX 82500 CE signal was reported at 2026-11-17 10:20 IST with 92% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 82,557.22.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -280,18 +280,18 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-11-17 10:56 IST"
+      "liveEntryAt": "2026-11-17 10:58 IST"
     }
   },
-  "last_hold_reminder_at": "2026-11-17 10:56 IST",
-  "last_bot_run_at": "2026-11-17 10:56 IST",
+  "last_hold_reminder_at": "2026-11-17 10:58 IST",
+  "last_bot_run_at": "2026-11-17 10:58 IST",
   "telegram_status": "Healthy",
   "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Buy",
   "current_signal_contract": "SENSEX 82500 CE",
-  "last_message_sent_at": "2026-11-17 10:56 IST",
+  "last_message_sent_at": "2026-11-17 10:58 IST",
   "last_message_action": "Buy",
   "last_message_contract": "SENSEX 82500 CE",
   "completed_trades_archive": [],
