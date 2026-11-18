@@ -1,6 +1,6 @@
 {
   "last_signature": "4af05436b1032fb49bd6a0c9ae755d0a8b08413e18572f99978c12543c674c69",
-  "last_updated": "2026-11-18 13:30 IST",
+  "last_updated": "2026-11-18 13:32 IST",
   "signal_reported_at": "2026-11-18 13:05 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-11-18 13:05 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 25150 PE signal was reported at 2026-11-18 13:10 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 25150 PE signal was reported at 2026-11-18 13:10 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,168.40.",
+      "watch": "Confirmed NIFTY 25150 PE signal was reported at 2026-11-18 13:10 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,169.75.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,13 +282,13 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-11-18 13:30 IST"
+      "liveEntryAt": "2026-11-18 13:32 IST"
     }
   },
   "last_hold_reminder_at": "2026-11-18 09:18 IST",
-  "last_bot_run_at": "2026-11-18 13:30 IST",
-  "telegram_status": "Sent fired-signal alert",
-  "last_status_detail": "Alerted 1 newly recorded signal(s) from the engine trade record.",
+  "last_bot_run_at": "2026-11-18 13:32 IST",
+  "telegram_status": "Duplicate skipped",
+  "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
@@ -373,5 +373,5 @@
     "SENSEX|SENSEX 82500 CE|2026-11-17",
     "NIFTY|NIFTY 25150 PE|2026-11-18"
   ],
-  "last_skipped_duplicate_at": "2026-11-17 15:30 IST"
+  "last_skipped_duplicate_at": "2026-11-18 13:32 IST"
 }
