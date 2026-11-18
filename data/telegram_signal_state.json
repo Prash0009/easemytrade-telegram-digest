@@ -1,6 +1,6 @@
 {
-  "last_signature": "f4a434ec3abbce758e63b8b7e2aad5d590742bf90a7bf02ae4cd116279a88b63",
-  "last_updated": "2026-11-18 13:36 IST",
+  "last_signature": "b84f70a1e7eff58e82b151bd0498e7d90693928b4f76d7ff0211b3c1f6040d51",
+  "last_updated": "2026-11-18 13:38 IST",
   "signal_reported_at": "2026-11-18 13:05 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-11-18 13:05 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 25150 PE signal was reported at 2026-11-18 13:10 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 25150 PE signal was reported at 2026-11-18 13:10 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,159.00.",
+      "watch": "Confirmed NIFTY 25150 PE signal was reported at 2026-11-18 13:10 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,157.10.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,18 +282,18 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-11-18 13:36 IST"
+      "liveEntryAt": "2026-11-18 13:38 IST"
     }
   },
-  "last_hold_reminder_at": "2026-11-18 13:36 IST",
-  "last_bot_run_at": "2026-11-18 13:36 IST",
+  "last_hold_reminder_at": "2026-11-18 13:38 IST",
+  "last_bot_run_at": "2026-11-18 13:38 IST",
   "telegram_status": "Healthy",
   "last_status_detail": "Telegram signal digest sent successfully.",
   "last_signal_action": "Sell",
   "last_signal_contract": "NIFTY 24050 PE",
   "current_signal_action": "Sell",
   "current_signal_contract": "NIFTY 25150 PE",
-  "last_message_sent_at": "2026-11-18 13:36 IST",
+  "last_message_sent_at": "2026-11-18 13:38 IST",
   "last_message_action": "Sell",
   "last_message_contract": "NIFTY 25150 PE",
   "completed_trades_archive": [],
