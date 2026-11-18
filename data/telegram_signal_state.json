@@ -1,6 +1,6 @@
 {
   "last_signature": "f87fa39f7dcd75e0a29b8370e2756a7b7c135ce5e341ed7c2c8b77731f4a2943",
-  "last_updated": "2026-11-18 14:16 IST",
+  "last_updated": "2026-11-18 14:18 IST",
   "signal_reported_at": "2026-11-18 13:05 IST",
   "payload_source": "live",
   "active_trades": {
@@ -146,7 +146,7 @@
   },
   "observed_setups": {},
   "last_hold_reminder_at": "2026-11-18 14:00 IST",
-  "last_bot_run_at": "2026-11-18 14:16 IST",
+  "last_bot_run_at": "2026-11-18 14:18 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -233,5 +233,5 @@
     "SENSEX|SENSEX 82500 CE|2026-11-17",
     "NIFTY|NIFTY 25150 PE|2026-11-18"
   ],
-  "last_skipped_duplicate_at": "2026-11-18 14:16 IST"
+  "last_skipped_duplicate_at": "2026-11-18 14:18 IST"
 }
