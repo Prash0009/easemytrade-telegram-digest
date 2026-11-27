@@ -1,6 +1,6 @@
 {
   "last_signature": "77b99224f6e6cdb29b92c4f74cbaa4572ad589e3cf4ed96777dd3de0f662d91e",
-  "last_updated": "2026-11-27 13:40 IST",
+  "last_updated": "2026-11-27 13:44 IST",
   "signal_reported_at": "2026-11-27 13:15 IST",
   "payload_source": "live",
   "active_trades": {
@@ -200,7 +200,7 @@
       "reportedAt": "2026-11-27 13:15 IST",
       "holdRule": "Active put-side trade remains live until stop-loss, target, opposite buy signal, or 3:15 PM IST.",
       "note": "Confirmed NIFTY 25650 PE signal was reported at 2026-11-27 13:15 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal.",
-      "watch": "Confirmed NIFTY 25650 PE signal was reported at 2026-11-27 13:15 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,676.70.",
+      "watch": "Confirmed NIFTY 25650 PE signal was reported at 2026-11-27 13:15 IST with 91% confidence. Source: 5-minute candle. It remains the latest confirmed high-confidence intraday signal. Spot 25,686.50.",
       "structure": "Active trade.",
       "momentum": "Live setup.",
       "tradePlan": "Hold until exit conditions trigger.",
@@ -282,11 +282,11 @@
       "windowLabel": "",
       "expiryActive": false,
       "liveEntryLtp": null,
-      "liveEntryAt": "2026-11-27 13:40 IST"
+      "liveEntryAt": "2026-11-27 13:44 IST"
     }
   },
   "last_hold_reminder_at": "2026-11-27 13:36 IST",
-  "last_bot_run_at": "2026-11-27 13:42 IST",
+  "last_bot_run_at": "2026-11-27 13:44 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -376,5 +376,5 @@
     "NIFTY|NIFTY 25900 CE|2026-11-26",
     "NIFTY|NIFTY 25650 PE|2026-11-27"
   ],
-  "last_skipped_duplicate_at": "2026-11-27 13:42 IST"
+  "last_skipped_duplicate_at": "2026-11-27 13:44 IST"
 }
