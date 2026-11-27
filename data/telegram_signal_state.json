@@ -286,7 +286,7 @@
     }
   },
   "last_hold_reminder_at": "2026-11-27 13:36 IST",
-  "last_bot_run_at": "2026-11-27 13:40 IST",
+  "last_bot_run_at": "2026-11-27 13:42 IST",
   "telegram_status": "Duplicate skipped",
   "last_status_detail": "Signal action, contract, entry, stop loss, target, and confidence are unchanged.",
   "last_signal_action": "Sell",
@@ -376,5 +376,5 @@
     "NIFTY|NIFTY 25900 CE|2026-11-26",
     "NIFTY|NIFTY 25650 PE|2026-11-27"
   ],
-  "last_skipped_duplicate_at": "2026-11-27 13:40 IST"
+  "last_skipped_duplicate_at": "2026-11-27 13:42 IST"
 }
